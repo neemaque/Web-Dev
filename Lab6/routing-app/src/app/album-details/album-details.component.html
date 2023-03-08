@@ -1,0 +1,19 @@
+<div *ngIf="album">
+  <a [routerLink]="['/albums']">Go back</a>
+  <p>Album title: {{album.title}}</p>
+  <p>Description: This album is great.</p>
+  <a [routerLink]="['/albums', album.id, 'photos']">Photos</a>
+  <form [formGroup]="changeTitle" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="name">
+        Change album title
+      </label>
+      <input id="name" type="text" formControlName="name">
+    </div>
+    <button class="button" type="submit">Save</button>
+  </form>
+  <form [formGroup]="deleteAlbum" (ngSubmit)="onDelete()">
+    <button class="button" type="submit">Delete</button>
+  </form>
+</div>
